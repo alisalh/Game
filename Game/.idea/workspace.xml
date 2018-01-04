@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-550">
-              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            <state relative-caret-position="880">
+              <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -34,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="car.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="car.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/car.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
+            <state relative-caret-position="1958">
               <caret line="260" column="32" lean-forward="true" selection-start-line="260" selection-start-column="31" selection-end-line="260" selection-end-column="32" />
               <folding />
             </state>
@@ -61,7 +61,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1021" />
     <option name="y" value="259" />
     <option name="width" value="1400" />
@@ -134,15 +134,15 @@
       <option name="presentableId" value="Default" />
       <updated>1514857383059</updated>
       <workItem from="1514857385010" duration="13917000" />
-      <workItem from="1515032008681" duration="2437000" />
+      <workItem from="1515032008681" duration="2858000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16354000" />
+    <option name="totallyTimeSpent" value="16775000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -262,18 +262,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/car.js">
+    <entry file="file://$PROJECT_DIR$/source/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="260" column="32" lean-forward="true" selection-start-line="260" selection-start-column="31" selection-end-line="260" selection-end-column="32" />
+        <state relative-caret-position="880">
+          <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/player.js">
+    <entry file="file://$PROJECT_DIR$/source/car.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-550">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="1958">
+          <caret line="260" column="32" lean-forward="true" selection-start-line="260" selection-start-column="31" selection-end-line="260" selection-end-column="32" />
           <folding />
         </state>
       </provider>
