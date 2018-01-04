@@ -42,7 +42,7 @@ Player.prototype.updateCamera = function()
 			Player.CAMERA_OFFSET_Y, Player.CAMERA_OFFSET_Z);
 	camerapos.addSelf(this.object3D.position);
 	this.camera.position.copy(camerapos);
-	this.camera.lookAt(this.object3D.position);
+	this.camera.lookAt(this.object3D.position);   //跟随物体一起移动
 
 	// Rotate particle system to view-aligned to avoid nasty alpha sorting artifacts
 	if (this.exhaust1)

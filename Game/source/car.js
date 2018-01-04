@@ -171,7 +171,7 @@ Car.prototype.bounce = function()
 
 }
 
-//碰撞动画
+//与其他车碰撞的动画
 Car.prototype.createCrashAnimation = function()
 {
     this.crashAnimator = new Sim.KeyFrameAnimator;
@@ -189,6 +189,7 @@ Car.prototype.createCrashAnimation = function()
     this.crashAnimator.subscribe("complete", this, this.onCrashAnimationComplete);	
 }
 
+//碰撞控制
 Car.prototype.animateCrash = function(on)
 {
 	if (on)
@@ -205,20 +206,21 @@ Car.prototype.onCrashAnimationComplete = function()
 {
 }
 
+//与围栏相撞的动画
 Car.prototype.createBounceAnimation = function()
 {
     this.bounceAnimator = new Sim.KeyFrameAnimator;
-    this.bounceAnimator.init({ 
+    this.bounceAnimator.init({
     	interps:
-    		[ 
-    	    { keys:Car.bounceRotationKeys, values:Car.bounceRotationValues, target:this.mesh.rotation } 
+    		[
+    	    { keys:Car.bounceRotationKeys, values:Car.bounceRotationValues, target:this.mesh.rotation }
     		],
     	loop: false,
     	duration:Car.bounce_animation_time
     });
 
-    this.addChild(this.bounceAnimator);    
-    this.bounceAnimator.subscribe("complete", this, this.onBounceAnimationComplete);	
+    this.addChild(this.bounceAnimator);
+    this.bounceAnimator.subscribe("complete", this, this.onBounceAnimationComplete);
 }
 
 Car.prototype.animateBounce = function(on)
@@ -240,13 +242,13 @@ Car.prototype.onBounceAnimationComplete = function()
 
 
 Car.crashPositionKeys = [0, .25, .75, 1];
-Car.crashPositionValues = [ { x : -1, y: 0, z : 0}, 
+Car.crashPositionValues = [ { x : -1, y: 0, z : 0},
                         { x: 0, y: 1, z: -1},
                         { x: 1, y: 0, z: -5},
                         { x : -1, y: 0, z : -2}
                         ];
 Car.crashRotationKeys = [0, .25, .5, .75, 1];
-Car.crashRotationValues = [ { z: 0, y: 0 }, 
+Car.crashRotationValues = [ { z: 0, y: 0 },
                                 { z: Math.PI, y: 0},
                                 { z: Math.PI * 2, y: 0},
                                 { z: Math.PI * 2, y: Math.PI},
@@ -256,7 +258,7 @@ Car.crashRotationValues = [ { z: 0, y: 0 },
 Car.crash_animation_time = 2000;
 
 Car.bounceRotationKeys = [0, .25, .5, .75, 1];
-Car.bounceRotationValues = [ { z: 0, y: 0 }, 
+Car.bounceRotationValues = [ { z: 0, y: 0 },
                                 { z: Math.PI / 8, y: 0},
                                 { z: 0, y: 0},
                                 { z: -Math.PI / 8, y: 0},
