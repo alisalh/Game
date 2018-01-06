@@ -1,0 +1,17 @@
+ul li
+{
+    list-style-type: none;
+    padding-bottom: 30px;
+}
+
+button
+{
+    background-color: orangered;
+    transform: skew(-30deg);
+    padding:10px 60px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}

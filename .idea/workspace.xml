@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4626284-7a3a-4062-9d1e-aae2ad13c20a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Game/source/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/car.js" afterPath="$PROJECT_DIR$/Game/source/car.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/environment.js" afterPath="$PROJECT_DIR$/Game/source/environment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/exhaust.js" afterPath="$PROJECT_DIR$/Game/source/exhaust.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/game.html" afterPath="$PROJECT_DIR$/Game/source/game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/game.js" afterPath="$PROJECT_DIR$/Game/source/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/player.js" afterPath="$PROJECT_DIR$/Game/source/player.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Game/css/button.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/images/name.png" afterPath="$PROJECT_DIR$/Game/images/name.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/images/start.png" afterPath="$PROJECT_DIR$/Game/images/start.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/source/index.html" afterPath="$PROJECT_DIR$/Game/source/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,16 +37,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-305">
               <caret line="57" column="10" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xcanvas.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Game/source/xcanvas.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1715">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,11 +77,32 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game/source/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+            <state relative-caret-position="437">
+              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webglbook.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Game/css/webglbook.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="button.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Game/css/button.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -142,6 +150,7 @@
         <option value="$PROJECT_DIR$/Game/source/game.js" />
         <option value="$PROJECT_DIR$/Game/models/Camaro-1/Camaro.js" />
         <option value="$PROJECT_DIR$/Game/source/index.html" />
+        <option value="$PROJECT_DIR$/Game/css/button.css" />
       </list>
     </option>
   </component>
@@ -152,8 +161,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="585" />
-    <option name="y" value="470" />
+    <option name="x" value="803" />
+    <option name="y" value="163" />
     <option name="width" value="1400" />
     <option name="height" value="997" />
   </component>
@@ -183,6 +192,12 @@
               <item name="Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Game" type="462c0819:PsiDirectoryNode" />
               <item name="Game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Game" type="462c0819:PsiDirectoryNode" />
+              <item name="Game" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Game" type="b2602c69:ProjectViewProjectNode" />
@@ -248,15 +263,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1515046985810</updated>
-      <workItem from="1515046987732" duration="26646000" />
+      <workItem from="1515046987732" duration="32406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26646000" />
+    <option name="totallyTimeSpent" value="32406000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="585" y="470" width="1400" height="997" extended-state="0" />
+    <frame x="803" y="163" width="1400" height="997" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27601156" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -385,14 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/source/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Game/source/digitaldisplay.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1219">
@@ -419,11 +426,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Game/source/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/css/webglbook.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/css/button.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Game/source/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        <state relative-caret-position="437">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
