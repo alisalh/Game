@@ -19,9 +19,9 @@ RacingGame.prototype.init = function(param)
 	this.hud = param.hud;
 	this.sounds = param.sounds;
 	
-	this.createEnvironment();
-	this.loadCars();
-	this.loadRacer();
+	this.createEnvironment();   //加载环境
+	this.loadCars();            //加载汽车
+	this.loadRacer();           //加载玩家
 	
 	this.curTime = Date.now();
 	this.deltat = 0;
@@ -29,7 +29,7 @@ RacingGame.prototype.init = function(param)
 	this.running = false;
 	this.state = RacingGame.STATE_LOADING;	
 
-	// Make sure the game has keyboard focus
+	//获取焦点
 	this.focus();
 
 	this.addContextListener();
@@ -43,6 +43,8 @@ RacingGame.prototype.createEnvironment = function()
 		textureGround:true,
 		textureFinishLine:true,
 		displaySigns:true});
+
+	//添加环境
 	this.addObject(this.environment);
 }
 
@@ -259,10 +261,12 @@ RacingGame.prototype.updateHUD = function()
 	}	
 }
 
+//碰撞检测
 RacingGame.prototype.testCollision = function()
 {
 	var playerpos = this.player.object3D.position;
-	
+
+	//与围栏的碰撞检测
 	if (playerpos.x > (Environment.ROAD_WIDTH / 2 - (Car.CAR_WIDTH/2)))
 	{
 		this.player.bounce();
@@ -274,7 +278,8 @@ RacingGame.prototype.testCollision = function()
 		this.player.bounce();
 		this.player.object3D.position.x += 1;
 	}
-	
+
+	//与其他赛车的碰撞检测
 	var i, len = this.cars.length;
 	for (i = 0; i < len; i++)
 	{

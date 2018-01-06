@@ -1,4 +1,4 @@
-//Custom Exhaust class
+//定义Exhaust类
 Exhaust = function()
 {
 	Sim.Object.call(this);
@@ -13,6 +13,7 @@ Exhaust.prototype.init = function(param)
 	this.initParticles();
 }
 
+//初始化粒子系统
 Exhaust.prototype.initParticles = function()
 {
 	var sphereRadius = 1;
@@ -26,7 +27,7 @@ Exhaust.prototype.initParticles = function()
 			size: 1,
 			opacity:.05,
 			transparent:true,
-			map: new THREE.ImageUtils.loadTexture('../images/smoke-2.png')
+			map: new THREE.ImageUtils.loadTexture('../images/smoke-2.png') //map属性加载纹理
 		});
 
 
@@ -49,7 +50,7 @@ Exhaust.prototype.initParticles = function()
 		particles.vertices.push(particle);
 	}
 
-	// create the particle system
+	//创建粒子系统
 	var particleSystem = new THREE.ParticleSystem(
 		particles,
 		pMaterial);
@@ -58,7 +59,7 @@ Exhaust.prototype.initParticles = function()
 
 	particleSystem.sortParticles = false;
 
-	// add it to the scene
+
 	this.object3D.add(particleSystem);
 	
 	this.particleCount = particleCount;
@@ -75,6 +76,7 @@ Exhaust.prototype.update = function()
 
 		var particle = this.particles.vertices[pCount];
 
+		//回收粒子
 		if(particle.position.y > .25 || particle.position.y < 0) {
 			particle.position.y = 0;
 			var radius =  this.sphereRadius*0.05;
@@ -82,8 +84,7 @@ Exhaust.prototype.update = function()
 			particle.position.x = Math.cos(angle) * radius;
 		}
 
-		//continue;
-		
+		//计算粒子位置
 		var t = Date.now() / 1000 % 3;
 		particle.position.x += Math.cos(t*particle.velocity.x) * .007;
 		particle.position.y += Math.sin(t*particle.velocity.y) * .05;

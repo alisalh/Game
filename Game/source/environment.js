@@ -1,16 +1,13 @@
-// Constructor
+//定义环境
 Environment = function()
 {
 	Sim.Object.call(this);
 }
 
-// Subclass Sim.App
 Environment.prototype = new Sim.Object();
 
-// Our custom initializer
 Environment.prototype.init = function(param)
 {
-	// Call superclass init code to set up scene, renderer, default camera
 	Sim.Object.prototype.init.call(this, param);
 	
 	param = param || {};
@@ -24,15 +21,16 @@ Environment.prototype.init = function(param)
 	this.textureFinishLine = param.textureFinishLine;
 	this.displaySigns = param.displaySigns;
 	
-    // Create a headlight to show off the model
-	this.headlight = new THREE.DirectionalLight( 0xffffff, 1);
-	this.headlight.position.set(0, 0, 1);
-	app.scene.add(this.headlight);	
+    //创建平行光
+    this.headlight = new THREE.DirectionalLight( 0xffffff, 1);
+    this.headlight.position.set(0, 0, 1);    //z轴方向
+    app.scene.add(this.headlight);
 
 	this.toplight = new THREE.DirectionalLight( 0xffffff, 1);
-	this.toplight.position.set(0, 1, 0);
-	app.scene.add(this.toplight);	
-	
+	this.toplight.position.set(0, 1, 0);    //y轴方向
+	app.scene.add(this.toplight);
+
+	//创建环境光
 	this.ambient = new THREE.AmbientLight( 0xffffff, 1);
 	app.scene.add(this.ambient);
 
@@ -51,36 +49,39 @@ Environment.prototype.init = function(param)
 	this.curTime = Date.now();
 }
 
+//创建天空
 Environment.prototype.createSky = function()
 {
 	var texture = null;
-	
-	// Clouds by moodflow
-	// http://www.turbosquid.com/Search/Artists/moodflow
-	// http://www.turbosquid.com/FullPreview/Index.cfm/ID/433395		
+
+	//天空纹理
 	if (this.textureSky)
 	{
 		texture = THREE.ImageUtils.loadTexture('../images/clouds1273.jpg');
-	    texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
-	    texture.repeat.set(1, 1);
+	    texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;    //环绕方式
+	    texture.repeat.set(1, 1);   //重复次数
 	}
 	else
 	{
 		texture = null;
 	}
-		
+
+	//天空网格
 	var sky = new THREE.Mesh( new THREE.PlaneGeometry( Environment.SKY_WIDTH, 
 			Environment.SKY_HEIGHT ), 
 			new THREE.MeshBasicMaterial( 
 			{ color: this.textureSky ? 0xffffff : 0x3fafdd, map:texture } 
 			) 
 	);
+
+	//天空位置
 	sky.position.y = 100 + Environment.GROUND_Y;
 	sky.position.z = -Environment.GROUND_LENGTH / 2;
 	this.app.scene.add( sky );
 	this.sky = sky;
 }
 
+//地面
 Environment.prototype.createGround = function()
 {    
 	var texture = null;
@@ -99,7 +100,7 @@ Environment.prototype.createGround = function()
 	var ground = new THREE.Mesh( new THREE.PlaneGeometry( Environment.GROUND_WIDTH, 
 			Environment.GROUND_LENGTH ), 
 			new THREE.MeshBasicMaterial( 
-			{ color: this.textureGround ? 0xffffff : 0xaaaaaa, ambient: 0x333333, map:texture } 
+			{ color: this.textureGround ? 0xffffff : 0xaaaaaa, ambient: 0x333333, map:texture }
 			)
 	);
 	ground.rotation.x = -Math.PI/2;
@@ -108,6 +109,7 @@ Environment.prototype.createGround = function()
 	this.ground = ground;
 }
 
+//赛道
 Environment.prototype.createRoad = function()
 {    
 	var texture = null;	
@@ -129,6 +131,7 @@ Environment.prototype.createRoad = function()
 
 }
 
+//护栏
 Environment.prototype.createGuardRails = function()
 {    
 	var texture = null;	
@@ -167,6 +170,7 @@ Environment.prototype.createGuardRails = function()
 
 }
 
+//终点
 Environment.prototype.createFinishLine = function()
 {    
 	var texture = null;	
@@ -194,6 +198,7 @@ Environment.prototype.createFinishLine = function()
 	this.finishsign = finishsign;
 }
 
+//路标
 Environment.prototype.createSigns = function()
 {
 	var that = this;
@@ -228,7 +233,7 @@ Environment.prototype.update = function()
 {
 	if (this.textureSky)
 	{
-		this.sky.material.map.offset.x += 0.00005;
+		this.sky.material.map.offset.x += 0.00005;   //天空移动
 	}
 	
 	if (this.app.running)

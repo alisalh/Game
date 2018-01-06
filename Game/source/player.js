@@ -103,11 +103,13 @@ Player.prototype.update = function()
 			{
 				this.turn(0);
 			}
-			
+
+			//加速
 			if (this.keysDown[Sim.KeyCodes.KEY_UP])
 			{
 				this.accelerate(0.02);
-			}		
+			}
+			//减速
 			else if (this.keysDown[Sim.KeyCodes.KEY_DOWN])
 			{
 				this.accelerate(-0.02);
@@ -135,16 +137,17 @@ Player.prototype.update = function()
 
 }
 
+//控制转动
 Player.prototype.turn = function(delta)
 {
 	this.object3D.position.x += delta;
 	if (delta < 0)
 	{
-		this.object3D.rotation.y = Math.PI / 8;
+		this.object3D.rotation.y = Math.PI / 8;    //左转
 	}
 	else if (delta > 0)
 	{
-		this.object3D.rotation.y = -Math.PI / 8;
+		this.object3D.rotation.y = -Math.PI / 8;   //右转
 	}
 	else
 	{
@@ -154,11 +157,12 @@ Player.prototype.turn = function(delta)
 
 Player.prototype.accelerate = function(delta)
 {
-	// Update acceleration value
+	//立即减速
 	if (this.acceleration > 0 && delta < 0)
 	{
 		this.acceleration = delta;
 	}
+	//立即加速
 	else if (this.acceleration < 0 && delta > 0)
 	{
 		this.acceleration = delta;
@@ -184,7 +188,7 @@ Player.prototype.accelerate = function(delta)
 		this.acceleration = -Player.MAX_ACCELERATION;
 	}
 	
-	// Now apply it to speed
+	//计算速度
 	this.speed += (this.acceleration * 1000 / 3600);
 	if (this.speed < 0)
 	{
@@ -243,8 +247,8 @@ Player.MAX_SPEED = 250 * 1000 / 3600;
 Player.MAX_ACCELERATION = 3;
 Player.MAX_RPM = 5000;
 
-Player.CAMERA_OFFSET_X = 0;		// meters
+Player.CAMERA_OFFSET_X = 0;
 Player.CAMERA_OFFSET_Y = 1.333;
 Player.CAMERA_OFFSET_Z = 5;
 
-Player.REV_LONG_THRESHOLD = 500; // ms
+Player.REV_LONG_THRESHOLD = 500;

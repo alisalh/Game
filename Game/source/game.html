@@ -68,15 +68,16 @@
 
 	        	var sounds = loadSounds();
 	        	adjustVolume(sounds, game_volume);
-	        	        	
-	            speedometer = new Speedometer ('speedometer', {theme: 'racing-black', max:250, 
-	            	threshold:150});
+
+	        	//时速表
+	            speedometer = new Speedometer ('speedometer', {theme: 'racing-black', max:250,
+                    threshold:150});
 	            speedometer.draw ();
 	            speedometer.addEventListener ('speedometer:animateend', function () {
 	              controls.start ();
 	            });
 	
-	            // The tachometer
+	            // 转速表
 	            tachometer = new Speedometer ('tachometer', {theme: 'racing-black', max:5000, 
 	               threshold:3500});
 	            tachometer.draw();
@@ -87,6 +88,7 @@
 	
 				app = new RacingGame();
 				app.init({ container: container, 
+					//平视显示器
 					hud: {
 						speedometer:speedometer,
 						tachometer:tachometer,

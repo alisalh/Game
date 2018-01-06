@@ -55,6 +55,7 @@ Car.prototype.createExhaust = function()
 
 }
 
+//更新距离、速度等
 Car.prototype.update = function()
 {
 	if (this.running)
@@ -73,7 +74,7 @@ Car.prototype.update = function()
 		var deltat = now - this.curTime;
 		this.curTime = now;
 		
-		var dist = deltat / 1000 * this.speed / this.speedFactor;
+		var dist = deltat / 1000 * this.speed / this.speedFactor;   //前进距离
 		this.object3D.position.z -= dist;
 	}
 	
@@ -160,7 +161,7 @@ Car.prototype.crash = function()
 Car.prototype.bounce = function()
 {
 	this.animateBounce(true);
-	this.speed *= 0.5;
+	this.speed *= 0.5;    //撞击围栏只减速度
 	this.bounce_flag = true;
 
 	if (this.sounds)
