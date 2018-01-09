@@ -12,8 +12,11 @@ RacingGame.prototype.init = function(param)
 {
 	// Call superclass init code to set up scene, renderer, default camera
 	Sim.App.prototype.init.call(this, param);
-	
-	param = param || {};
+
+    var thisURL = document.URL;
+    var modelID = thisURL.split('?')[1];
+
+    param = param || {};
 	this.param = param;
 	
 	this.hud = param.hud;
@@ -21,7 +24,7 @@ RacingGame.prototype.init = function(param)
 	
 	this.createEnvironment();   //加载环境
 	this.loadCars();            //加载汽车
-	this.loadRacer();           //加载玩家
+	this.loadRacer(modelID);           //加载玩家
 	
 	this.curTime = Date.now();
 	this.deltat = 0;
@@ -110,19 +113,56 @@ RacingGame.prototype.onCarLoaded = function(model, make, options)
 }
 
 
-RacingGame.prototype.loadRacer = function()
+RacingGame.prototype.loadRacer = function(id)
 {
 	var that = this;
 	var model = new JSONModel;
-	model.init({ url : "../models/Nissan GTR OBJ/Objects/NissanOBJ1.js", scale:0.0254,
-		callback: function(model) { that.onRacerLoaded(model); }
-	});
+
+	if(id==0)
+	{
+        model.init({
+            url : "../models/Nissan GTR OBJ/Objects/NissanOBJ1.js",
+            scale:0.02,
+            callback: function(model) { that.onRacerLoaded(id,model); }
+        });
+	}
+	if(id==1)
+	{
+        model.init({
+            url : "../models/Nova Car/NovaCar.js",
+            scale:0.4,
+            callback: function(model) { that.onRacerLoaded(id,model); }
+        });
+	}
+    if(id==2)
+    {
+        model.init({
+            url : "../models/Camaro-1/Camaro.js",
+            scale:0.125,
+            callback: function(model) { that.onRacerLoaded(id,model); }
+        });
+    }
 }
 
-RacingGame.prototype.onRacerLoaded = function(model)
+RacingGame.prototype.onRacerLoaded = function(id,model)
 {
 	// Turn away from camera
-	model.mesh.rotation.y = Math.PI;
+	if(id==0)
+	{
+        model.mesh.rotation.y = Math.PI;
+    }
+    if(id==1)
+	{
+        model.mesh.rotation.x = -Math.PI/2;
+        model.mesh.rotation.z = Math.PI;
+    }
+    if(id==2)
+	{
+          model.mesh.rotation.x = Math.PI/2;
+          model.mesh.rotation.y = Math.PI;
+          model.mesh.translateX(-0.8);
+          model.mesh.translateZ(0.2);
+	}
 
 	this.player = new Player;
 	this.player.init({ mesh : model.object3D, camera : camera, exhaust:true,

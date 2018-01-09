@@ -17,6 +17,7 @@
         var app = null;
         var container = null;
         var currentModel = null;
+        var modelID=0;
 
         //赛车模型信息
         var modelInfo = [
@@ -24,19 +25,19 @@
             // http://www.turbosquid.com/FullPreview/Index.cfm/ID/577061
             // Author: deluxe3D
             // http://www.turbosquid.com/Search/Artists/deluxe3D
-            { modelClass : JSONModel, url : "../models/Nissan GTR OBJ/Objects/NissanOBJ1.js", scale:0.02, rotation:{  x: Math.PI / 5,y: Math.PI / 3},model:null},
+            { id:0, modelClass : JSONModel, url : "../models/Nissan GTR OBJ/Objects/NissanOBJ1.js", scale:0.02, rotation:{  x: Math.PI / 5,y: Math.PI / 3},model:null},
 
             // Model from Turbosquid
             // http://www.turbosquid.com/FullPreview/Index.cfm/ID/302272
             // Author: Phosphoer
             // http://www.turbosquid.com/Search/Artists/Phosphoer
-            { modelClass : JSONModel, url : "../models/Nova Car/NovaCar.js", scale:0.65,position:{x:1.5},rotation:{ x: -Math.PI / 3, z:Math.PI / 3},model:null},
+            { id:1, modelClass : JSONModel, url : "../models/Nova Car/NovaCar.js", scale:0.65,position:{x:1.5},rotation:{ x: -Math.PI / 3, z:Math.PI / 3},model:null},
 
             // Model from Turbosquid
             // http://www.turbosquid.com/FullPreview/Index.cfm/ID/595293
             // Author: sakis25
             // http://www.turbosquid.com/Search/Artists/sakis25
-            { modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+            { id:2, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
                 rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null}
         ] ;
 
@@ -80,6 +81,8 @@
                 }
                 var model;
                 var info = modelInfo[id];
+                modelID=info.id;
+
                 if (info.model)
                 {
                     model = info.model;
@@ -95,7 +98,6 @@
                                 onModelLoaded(model, info);
                             }
                         });
-
                 }
 
                 //设置模型位置信息
@@ -122,6 +124,11 @@
                 currentModel = model;
         }
 
+        function sendID()
+        {
+            window.location.href='index.html?'+modelID;
+        }
+
         $(document).ready(
             function() {
                 container = document.getElementById("container");
@@ -141,6 +148,9 @@
         <img src="../images/model1.png" onclick="selectModel(0)"/>
         <img src="../images/model2.png" onclick="selectModel(1)"/>
         <img src="../images/model3.png" onclick="selectModel(2)"/>
+    </div>
+    <div>
+        <button onclick="sendID()">选择</button>
     </div>
     <div id="container"></div>
 </div>
