@@ -1,3 +1,2 @@
 #忽略使用webstorm产生的中间文件
-.idea
-.idea/
+/.idea/*
