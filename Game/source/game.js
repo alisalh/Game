@@ -149,6 +149,11 @@ RacingGame.prototype.startGame = function()
 		var driving = this.sounds["driving"];
 		driving.loop = true;
 		driving.play();
+
+        var bgm = this.sounds["bgm"];
+        bgm.volume -= 0.5;
+        bgm.loop = true;
+        bgm.play();
 	}
 }
 
@@ -353,6 +358,11 @@ RacingGame.prototype.restart = function(e)
 		var driving = this.sounds["driving"];
 		driving.pause();
 		driving.currentTime = 0;
+
+        var bgm = this.sounds["bgm"];
+        bgm.volume -= 0.5;
+        bgm.pause();
+        bgm.currentTime = 0;
 	}
 	
 	// Hide the overlay
