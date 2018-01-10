@@ -89,18 +89,21 @@ Player.prototype.update = function()
 			var turning = false;
 			if (this.keysDown[Sim.KeyCodes.KEY_LEFT])
 			{
+				Player.power = 6000;
 				this.turn(-0.1);
 				turning = true;
 			}
 			
 			if (this.keysDown[Sim.KeyCodes.KEY_RIGHT])
 			{
+				Player.power = 6000;
 				this.turn(0.1);
 				turning = true;
 			}
 
 			if (!turning)
 			{
+				Player.power = 10000;
 				this.turn(0);
 			}
 
@@ -167,10 +170,20 @@ Player.prototype.accelerate = function(delta)
 	{
 		this.acceleration = delta;
 	}
+	//else块内为Yu Longxin修改处
 	else
 	{
-		this.acceleration += delta;		
-		this.rpm += delta * Player.MAX_RPM;
+		if(this.rpm < 0){
+			this.rpm = 0;
+		}
+		if(delta > 0){
+			temp = Player.power / (this.speed + 1) / Player.mass
+			this.acceleration = temp;
+			this.rpm += temp * Player.MAX_RPM / 200;
+		}else{
+			this.acceleration += delta;		
+			this.rpm += delta * Player.MAX_RPM;
+		}
 	}
 	
 	if (this.rpm > Player.MAX_RPM)
@@ -246,6 +259,9 @@ Player.prototype.handleKeyUp = function(keyCode, charCode)
 Player.MAX_SPEED = 250 * 1000 / 3600;
 Player.MAX_ACCELERATION = 3;
 Player.MAX_RPM = 5000;
+
+Player.power = 10000
+Player.mass = 1500
 
 Player.CAMERA_OFFSET_X = 0;
 Player.CAMERA_OFFSET_Y = 1.333;
