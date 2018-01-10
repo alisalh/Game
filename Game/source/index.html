@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Start</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+
+    <script>
+        function sendID(){
+            var thisURL=document.URL;
+            var modelID=thisURL.split('?')[1];
+            window.location.href='game.html?'+modelID;
+        }
+    </script>
 </head>
 <body style="margin: 0px">
 <div class="background">
@@ -12,7 +20,7 @@
     </div>
     <div class="btn_group">
         <ul>
-            <li><button onclick="window.location.href='game.html'">开 始 游 戏</button></li>
+            <li><button onclick="sendID()">开 始 游 戏</button></li>
             <li><button onclick="window.location.href='model.html'">赛 车 类 型</button></li>
             <li><button>游 戏 模 式</button></li>
             <li><button>结 束 游 戏</button></li>
