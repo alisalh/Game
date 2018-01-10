@@ -76,8 +76,10 @@ Environment.prototype.createSky = function()
 
 	//天空位置
 	sky.position.y = 100 + Environment.GROUND_Y;
-	sky.position.z = -Environment.GROUND_LENGTH / 2;
-	this.app.scene.add( sky );
+	// sky.position.z = -Environment.GROUND_LENGTH / 2;
+    sky.position.z = -800;
+
+    this.app.scene.add( sky );
 	this.sky = sky;
 }
 
@@ -253,7 +255,7 @@ Environment.SKY_WIDTH = 3000;
 Environment.SKY_HEIGHT = 200;
 Environment.GROUND_Y = -10;
 Environment.GROUND_WIDTH = 2000;
-Environment.GROUND_LENGTH = 800;
+Environment.GROUND_LENGTH = 1200;
 Environment.ROAD_WIDTH = 8;
 Environment.ROAD_LENGTH = 600;//赛道长度原先是400
 Environment.RAIL_WIDTH = .2;

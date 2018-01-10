@@ -16,6 +16,10 @@ RacingGame.prototype.init = function(param)
     var thisURL = document.URL;
     var modelID = thisURL.split('?')[1];
 
+    if (modelID == "undefined") {//默认为id=0的白车
+        modelID = 0;
+    }
+
     param = param || {};
 	this.param = param;
 	
