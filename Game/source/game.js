@@ -190,10 +190,10 @@ RacingGame.prototype.startGame = function()
 		driving.loop = true;
 		driving.play();
 
-        var bgm = this.sounds["bgm"];
-        bgm.volume -= 0.5;
-        bgm.loop = true;
-        bgm.play();
+        // var bgm = this.sounds["bgm"];
+        // bgm.volume -= 0.5;
+        // bgm.loop = true;
+        // bgm.play();
 	}
 }
 
@@ -399,10 +399,10 @@ RacingGame.prototype.restart = function(e)
 		driving.pause();
 		driving.currentTime = 0;
 
-        var bgm = this.sounds["bgm"];
-        bgm.volume -= 0.5;
-        bgm.pause();
-        bgm.currentTime = 0;
+        // var bgm = this.sounds["bgm"];
+        // bgm.volume -= 0.5;
+        // bgm.pause();
+        // bgm.currentTime = 0;
 	}
 	
 	// Hide the overlay
