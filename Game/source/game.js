@@ -269,9 +269,9 @@ RacingGame.prototype.createCars = function()
         var car= new Car;
         car.init({ mesh : object ,flag : 1 });
         this.addObject(car);
-        var randx = (Math.random()-0.5) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5) + Car.CAR_WIDTH/2;
+        var randx = (Math.random()-0.5) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5);
         //console.log(randx);
-        if(i>0) z -= (Math.random())* Environment.ROAD_LENGTH/8; //保证反向的两辆车不会重
+        if(i>0) z -= (Math.random())* Environment.ROAD_LENGTH/4; //保证反向的两辆车不会重
         car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, z);
         this.cars.push(car);
         car.start();
@@ -295,7 +295,7 @@ RacingGame.prototype.createCar = function(makeIndex, flag)
     {
         options.rotation.z = Math.PI;
         //options.rotation.y = Math.PI/2;
-        options.position.x = 1-Car.CAR_WIDTH-0.5;//car width
+        options.position.x = 1-Car.CAR_WIDTH-0.25;//car width
         options.position.z -= Car.CAR_WIDTH;
     }
 	var mesh = new THREE.Mesh(model.mesh.geometry, model.mesh.material);
