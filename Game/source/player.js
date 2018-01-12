@@ -146,11 +146,11 @@ Player.prototype.turn = function(delta)
 	this.object3D.position.x += delta;
 	if (delta < 0)
 	{
-		this.object3D.rotation.y = Math.PI / 8;    //左转
+		this.object3D.rotation.y = Math.PI / 12;    //左转
 	}
 	else if (delta > 0)
 	{
-		this.object3D.rotation.y = -Math.PI / 8;   //右转
+		this.object3D.rotation.y = -Math.PI / 12;   //右转
 	}
 	else
 	{
