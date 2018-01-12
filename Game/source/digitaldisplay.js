@@ -1,6 +1,3 @@
-// Original code shared in the public domain on the 'net by <anonymous>
-// Further work by vjt@openssl.it - http://sindro.me/
-//
 function DigitalDisplay (options)
 {
   var element = options.element;

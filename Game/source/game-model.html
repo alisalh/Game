@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose-Game - Model Previewer</title>
+
+    <link href="../css/webglbook.css" rel="stylesheet" />
+    <link href="../css/model.css" rel="stylesheet" />
+    <script src="../libs/Three.js"></script>
+    <script src="../libs/jquery-1.6.4.js"></script>
+    <script src="../libs/jquery.mousewheel.js"></script>
+    <script src="../libs/RequestAnimationFrame.js"></script>
+    <script src="../sim/sim.js"></script>
+    <script src="modelViewer.js"></script>
+    <script src="jsonModel.js"></script>
+    <script>
+
+        var app = null;
+        var container = null;
+        var currentModel = null;
+        var modelOneID=1;//默认为单玩家
+        var modelManyID=0;//多玩家
+
+
+        function sendOneID()
+        {
+            window.location.href='index.html?'+modelOneID;
+        }
+        function sendManyID()
+        {
+            window.location.href='index.html?'+modelManyID;
+        }
+
+    </script>
+
+</head>
+<body>
+<div class="background">
+    <div>
+        <button id="chooseone_but"onclick="sendOneID()">单人模式</button>
+    </div>
+    <div id="container"></div>
+    <div>
+        <button id="choosemany_but"onclick="sendManyID()">多玩家模式</button>
+    </div>
+    <div id="container1"></div>
+</div>
+</body>
+</html>
