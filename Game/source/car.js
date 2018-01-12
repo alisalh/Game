@@ -28,7 +28,8 @@ Car.prototype.init = function(param)
 	
 	this.speed = Car.DEFAULT_SPEED;
     this.speedFactor = Car.DEFAULT_SPEED_FACTOR;
-	
+    //console.log(param.flag);
+	this.flag = param.flag;
 	this.createCrashAnimation();
 	this.createBounceAnimation();
 
@@ -55,9 +56,19 @@ Car.prototype.createExhaust = function()
 
 }
 
+Car.prototype.move=function(dist)
+{
+	if (this.running)
+	{
+		//this.speed = 50 * 1000 / 3600;
+        this.object3D.position.x += dist;
+	}
+}
+
 //更新距离、速度等
 Car.prototype.update = function()
 {
+
 	if (this.running)
 	{
 		if (this.crashed)
@@ -75,7 +86,9 @@ Car.prototype.update = function()
 		this.curTime = now;
 		
 		var dist = deltat / 1000 * this.speed / this.speedFactor;   //前进距离
-		this.object3D.position.z -= dist;
+        if(this.flag == 0) this.object3D.position.z -= dist;
+    	else this.object3D.position.z += dist;
+		//console.log(this.object3D.position.z);
 	}
 	
 	Sim.Object.prototype.update.call(this);
@@ -273,3 +286,4 @@ Car.DEFAULT_SPEED_FACTOR = 2;
 Car.CAR_LENGTH = 4.2; // Supposedly, average car length
 Car.CAR_WIDTH = 1.8;
 Car.CAR_HEIGHT = 1.2;
+Car.flag=0;//0同向车辆，1反向车辆

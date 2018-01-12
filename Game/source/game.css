@@ -108,6 +108,12 @@ div, form {
 .overlay #restartButton {
 	text-align:center;
 	bottom:8%;
-	left:41%;
+	left:10%;
 	position:absolute;
+}
+.overlay #return {
+    text-align:center;
+    bottom:8%;
+    right:10%;
+    position:absolute;
 }
