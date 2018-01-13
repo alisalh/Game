@@ -26,32 +26,75 @@
             // http://www.turbosquid.com/FullPreview/Index.cfm/ID/577061
             // Author: deluxe3D
             // http://www.turbosquid.com/Search/Artists/deluxe3D
-            { id:0, modelClass : JSONModel, url : "../models/Nissan GTR OBJ/Objects/NissanOBJ1.js", scale:0.02, rotation:{  x: Math.PI / 5,y: Math.PI / 3},model:null},
+            { id:0, modelClass : JSONModel,
+                brand:"Nissan GTR",
+                color: "Silver",
+                performance:"Level one",
+                url : "../models/Nissan GTR OBJ/Objects/NissanOBJ1.js",
+                scale:0.02,
+                rotation:{  x: Math.PI / 5,y: Math.PI / 3},
+                model:null
+            },
 
             // Model from Turbosquid
             // http://www.turbosquid.com/FullPreview/Index.cfm/ID/302272
             // Author: Phosphoer
             // http://www.turbosquid.com/Search/Artists/Phosphoer
-            { id:1, modelClass : JSONModel, url : "../models/Nova Car/NovaCar.js", scale:0.65,position:{x:1.5},rotation:{ x: -Math.PI / 3, z:Math.PI / 3},model:null},
+            { id:1, modelClass : JSONModel,
+                brand:"Nova",
+                color: "Green",
+                performance:"Level three",
+                url : "../models/Nova Car/NovaCar.js",
+                scale:0.65,
+                position:{x:1.5},
+                rotation:{ x: -Math.PI / 3, z:Math.PI / 3},
+                model:null
+            },
 
             // Model from Turbosquid
             // http://www.turbosquid.com/FullPreview/Index.cfm/ID/595293
             // Author: sakis25
             // http://www.turbosquid.com/Search/Artists/sakis25
-            { id:2, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
-                rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null},
+            { id:2, modelClass : JSONModel,
+                brand:"Camaro",
+                color: "Golden",
+                performance:"Level two",
+                url : "../models/Camaro-1/Camaro.js",
+                scale:0.15,
+                position:{x:1.5},
+                rotation:{ x: -Math.PI / 3, z:Math.PI / 3},
+                model:null
+            },
 
-            { id:3, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+            { id:3, modelClass : JSONModel,
+                brand:"Camaro",
+                color: "Silver",
+                performance:"Level two",
+                url : "../models/Camaro-1/Camaro.js",
+                scale:0.15,
+                position:{x:1.5},
                 map:"../models/Camaro-1/camaro_4.jpg",
                 mapIndex:0,
                 rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null},
 
-            { id:4, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+            { id:4, modelClass : JSONModel,
+                brand:"Camaro",
+                color: "Purple",
+                performance:"Level two",
+                url : "../models/Camaro-1/Camaro.js",
+                scale:0.15,
+                position:{x:1.5},
                 map:"../models/Camaro-1/camaro_3.jpg",
                 mapIndex:0,
                 rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null},
 
-            { id:5, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+            { id:5, modelClass : JSONModel,
+                brand:"Camaro",
+                color: "Yellow",
+                performance:"Level two",
+                url : "../models/Camaro-1/Camaro.js",
+                scale:0.15,
+                position:{x:1.5},
                 map:"../models/Camaro-1/camaro_2.jpg",
                 mapIndex:0,
                 rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null}
@@ -79,14 +122,15 @@
             var nFaces = geometry.faces.length;
             var nPlaces = 3;
 
-            var statsHTML = "Model Info<br>Dimensions: " + width.toFixed(nPlaces) + " x " +
-                height.toFixed(nPlaces) + " x " + depth.toFixed(nPlaces) + "<br># Materials: " + nMaterials +
-                "<br># Faces: " + nFaces;
+            var statsHTML = "<br>Model Info<br># Car Brand: "+info.brand+"<br># Color: "+info.color+
+                "<br># Dimensions: (" + width.toFixed(nPlaces) + " , " + height.toFixed(nPlaces)
+                + " , " + depth.toFixed(nPlaces) + ")<br># Materials: " + nMaterials + "<br># Faces: "
+                + nFaces+"<br># Performance: "+info.performance;
 
             info.model = model;
             info.stats = statsHTML;
 
-           // displayModelStats(statsHTML);
+            displayModelStats(statsHTML);
         }
 
         function displayModelStats(statsHTML)
@@ -109,7 +153,7 @@
                 if (info.model)
                 {
                     model = info.model;
-                  //  displayModelStats(info.stats);
+                    displayModelStats(info.stats);
                 }
                 else
                 {
@@ -165,7 +209,7 @@
 
 </head>
 <body>
-<div class="background">
+<div id="background_div">
     <div class="model_img">
         <img src="../images/model1.png" onclick="selectModel(0)"/>
         <img src="../images/model2.png" onclick="selectModel(1)"/>
@@ -173,12 +217,15 @@
         <img src="../images/model4.png" onclick="selectModel(3)"/>
         <img src="../images/model5.png" onclick="selectModel(4)"/>
         <img src="../images/model6.png" onclick="selectModel(5)"/>
-
     </div>
     <div>
-        <button id="choose_but"onclick="sendID()">确认</button>
+        <button id="choose_but"onclick="sendID()">选择赛车</button>
     </div>
+    <div id="modelStats"></div>
     <div id="container"></div>
+    <div>
+        <img id="racer" src="../images/racer.png">
+    </div>
 </div>
 </body>
 </html>

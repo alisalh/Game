@@ -1,34 +1,26 @@
-.background
+#background_div
 {
-    /*width: 100%;*/
-    /*height:100%;*/
-    /*background: url("../images/park.jpg") no-repeat;*/
-    /*background-size: 100% 100%;*/
-    /*position: absolute;*/
-    /*z-index: -1;*/
-
-    background-color: grey;
+    position:absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: grey;
 }
 #container {
     position:absolute;
     width:95%;
     height:80%;
 }
-#container1 {
-    position:absolute;
-    width:10%;
-    height:80%;
-}
 
 #modelStats {
-    width:20%;
-    height:20%;
-    right:10%;
-    top:20%;
+    width:25%;
+    height:30%;
+    right:3%;
+    top:25%;
     margin:4px;
     padding:4px;
     background-color:rgba(200, 200, 220, .5);
-    font-size:10pt;
+    font-size:20px;
     position:absolute;
     display:none;
 }
@@ -50,42 +42,31 @@ img:hover
     border: 5px solid orangered;
     box-shadow: 0 22px 26px 0 rgba(0,0,0,0.25), 0 27px 30px 0 rgba(0,0,0,0.25);
 }
-<<<<<<< HEAD
 
-=======
 img:active
 {
     border-color: orangered;
 }
-#chooseone_but
+
+#racer
 {
-    width:auto;
-    position:absolute;
-    bottom:18%;
-    right:30%;
-    background-color: orangered;
-    padding:15px 60px;
-    display: inline-block;
-    border-radius: 4px;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
+    position: absolute;
+    box-shadow: none;
+    width: 300px;
+    height: 500px;
+    top:10%;
+    left:5%;
 }
-<<<<<<< HEAD
->>>>>>> 3775bd12f5722428506a677b80309a9511f8c1e9
-=======
->>>>>>> 3775bd12f5722428506a677b80309a9511f8c1e9
-#choose_but
+
+#racer:hover
+{
+    border: none;
+    box-shadow: none;
+}
+
+button
 {
     width:auto;
-    position:absolute;
-    bottom:13%;
-    right:10%;
     background-color: #FF6428;
     padding:9px 40px;
     display: inline-block;
@@ -100,63 +81,19 @@ img:active
     margin: 5px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
 }
-#choosemany_but
+
+#choose_but
 {
-    width:auto;
     position:absolute;
-    bottom:18%;
-    left:30%;
-    background-color: orangered;
-    padding:15px 60px;
-    display: inline-block;
-    border-radius: 4px;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
+    bottom:17%;
+    left:43%;
 }
-#choosemany_but
-{
-    width:auto;
-    position:absolute;
-    bottom:18%;
-    left:30%;
-    background-color: orangered;
-    padding:15px 60px;
-    display: inline-block;
-    border-radius: 4px;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
-}
-#choose_but:hover
+
+button:hover
 {
     background-color: #FF3C00;
     box-shadow: 0 22px 36px 0 rgba(0,0,0,0.25), 0 27px 70px 0 rgba(0,0,0,0.25);
 }
 
-#racer
-{
-    border: none;
-    box-shadow: none;
-    position: absolute;
-    width: 100%;
-    height: 220px;
-}
-
-#racer:hover
-{
-    box-shadow: none;
-    border:none;
-}
 
 
