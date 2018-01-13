@@ -76,6 +76,9 @@ img:active
     margin: 5px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
 }
+<<<<<<< HEAD
+>>>>>>> 3775bd12f5722428506a677b80309a9511f8c1e9
+=======
 >>>>>>> 3775bd12f5722428506a677b80309a9511f8c1e9
 #choose_but
 {
@@ -92,6 +95,25 @@ img:active
     text-align: center;
     font-size: 20px;
     font-weight: 500;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
+}
+#choosemany_but
+{
+    width:auto;
+    position:absolute;
+    bottom:18%;
+    left:30%;
+    background-color: orangered;
+    padding:15px 60px;
+    display: inline-block;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
