@@ -124,7 +124,7 @@
 	</script>
 
 </head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <body>
 	<center><h1>赛车</h1></center>
     <div id="container" style="width:98%; height:85%; position:absolute; outline:none; background-color:#3fafdd;"></div>
@@ -143,12 +143,15 @@
     0.00
     </div>
     <div id="overlay" class="overlay" >
-    <div id="header" class="header">完成</div>
-    <div id="contents" class="contents">
-    成绩: 42.43s<br></br>
-    最佳成绩: 39.31s
-    </div>
-    <div id="restartButton" class="restartButton"><button onclick="onRestartClicked(this);">重新开始</button></div>
+    	<div id="header" class="header">完成</div>
+    	<div id="contents" class="contents">
+   	 	成绩: 42.43s<br></br>
+    	最佳成绩: 39.31s
+    	</div>
+    	<div id="restartButton" class="restartButton"><button onclick="onRestartClicked(this);">重新开始</button></div>
+		<div id="return">
+			<button onclick="window.location.href='index.html'">返回</button>
+		</div>
     </div>
 
 	<audio id="driving">

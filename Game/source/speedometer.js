@@ -1,8 +1,3 @@
-// Original code shared in the public domain on the 'net by <anonymous>
-// Further work by vjt@openssl.it - http://sindro.me/
-//
-// Project home page: http://github.com/vjt/canvas-speedometer
-//
 function Speedometer(Element) {
   var options = arguments[1] || {};
 
@@ -109,15 +104,13 @@ function Speedometer(Element) {
     });
   }
 
-  // Now append the canvases into the given container
-  //
   Container.appendChild (Canvas.background);
   Container.appendChild (Canvas.digits);
   Container.appendChild (Canvas.hand);
   Container.appendChild (Canvas.foreground);
 
   //
-  // Initialization done!
+  // 完成初始化
 
   // Draw everything (still to be refactored)
   //
@@ -139,7 +132,7 @@ function Speedometer(Element) {
   }
 
   ////////////////////
-  // Update functions
+  // 更新函数
 
   // Clip the given value to max/min
   //

@@ -39,12 +39,34 @@
             // Author: sakis25
             // http://www.turbosquid.com/Search/Artists/sakis25
             { id:2, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+                rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null},
+
+            { id:3, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+                map:"../models/Camaro-1/camaro_4.jpg",
+                mapIndex:0,
+                rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null},
+
+            { id:4, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+                map:"../models/Camaro-1/camaro_3.jpg",
+                mapIndex:0,
+                rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null},
+
+            { id:5, modelClass : JSONModel, url : "../models/Camaro-1/Camaro.js", scale:0.15, position:{x:1.5},
+                map:"../models/Camaro-1/camaro_2.jpg",
+                mapIndex:0,
                 rotation:{ x: -Math.PI / 3, z:Math.PI / 3}, model:null}
         ] ;
 
         function onModelLoaded(model, info)
         {
             var geometry = model.mesh.geometry;
+
+            if(info.map)
+            {
+                var mesh= new THREE.Mesh(model.mesh.geometry, model.mesh.material);
+                var material = mesh.geometry.materials[info.mapIndex];
+                material.map = THREE.ImageUtils.loadTexture(info.map);
+            }
 
             // 显示包围盒、材质数量和面数
             geometry.computeBoundingBox();
@@ -118,7 +140,6 @@
                         info.rotation.z ? info.rotation.z : 0);
 
                 }
-
                 //添加模型
                 app.addModel(model);
                 //设置当前模型
@@ -149,6 +170,10 @@
         <img src="../images/model1.png" onclick="selectModel(0)"/>
         <img src="../images/model2.png" onclick="selectModel(1)"/>
         <img src="../images/model3.png" onclick="selectModel(2)"/>
+        <img src="../images/model4.png" onclick="selectModel(3)"/>
+        <img src="../images/model5.png" onclick="selectModel(4)"/>
+        <img src="../images/model6.png" onclick="selectModel(5)"/>
+
     </div>
     <div>
         <button id="choose_but"onclick="sendID()">确认</button>
