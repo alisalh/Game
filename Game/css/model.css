@@ -64,7 +64,11 @@ img:active
     box-shadow: none;
 }
 
+<<<<<<< HEAD
 button
+=======
+#choose_but
+>>>>>>> 42c857452b4009c3e11b45cdcdc0710a732e72c5
 {
     width:auto;
     background-color: #FF6428;
