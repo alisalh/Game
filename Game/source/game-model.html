@@ -5,7 +5,7 @@
     <title>Choose-Game - Model Previewer</title>
 
     <link href="../css/webglbook.css" rel="stylesheet" />
-    <link href="../css/model.css" rel="stylesheet" />
+    <link href="../css/gamemode.css" rel="stylesheet" />
     <script src="../libs/Three.js"></script>
     <script src="../libs/jquery-1.6.4.js"></script>
     <script src="../libs/jquery.mousewheel.js"></script>
@@ -15,30 +15,72 @@
     <script src="jsonModel.js"></script>
     <script>
 
-        var app = null;
-        var container = null;
-        var currentModel = null;
-        var modelOneID=1;//默认为单玩家
-        var modelManyID=0;//多玩家
-
+        var modeID;
 
         function sendOneID()
         {
-            window.location.href='index.html?'+modelOneID;
+            var thisURL=document.URL;
+            if(thisURL.indexOf('?')==-1)
+            {
+                window.location.href="index.html?"+"&"+6;
+            }
+            else
+            {
+                var str=thisURL.split('?')[1];
+                var arr=str.split('&');
+                if(arr[1]<6)
+                    window.location.href="index.html?"+"&"+arr[1]+"&"+6;
+                else
+                {
+                    if(arr[2])
+                        window.location.href="index.html?"+"&"+arr[2]+"&"+6;
+                    else
+                        window.location.href="index.html?"+"&"+6;
+                }
+            }
+            modeID=6;
         }
         function sendManyID()
         {
-            window.location.href='index.html?'+modelManyID;
+            var thisURL=document.URL;
+            if(thisURL.indexOf('?')==-1)
+            {
+                window.location.href="index.html?"+"&"+7;
+            }
+            else
+            {
+                var str=thisURL.split('?')[1];
+                var arr=str.split('&');
+                if(arr[1]<6)
+                    window.location.href="index.html?"+"&"+arr[1]+"&"+7;
+                else
+                {
+                    if(arr[2])
+                        window.location.href="index.html?"+"&"+arr[2]+"&"+7;
+                    else
+                        window.location.href="index.html?"+"&"+7;
+                }
+            }
+            modeID=7;
         }
 
     </script>
 
 </head>
 <body>
-<div class="background">
+<div id="background_div">
     <div>
         <button id="chooseone_but"onclick="sendOneID()">单玩家模式</button>
         <button id="choosemany_but"onclick="sendManyID()">多玩家模式</button>
+    </div>
+    <div>
+        <div id="container">
+            <h3>单玩家模式</h3>
+            <p></p>
+        </div>
+        <div id="container1">
+            <h3>多玩家模式</h3>
+        </div>
     </div>
 </div>
 </body>

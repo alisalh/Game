@@ -8,8 +8,33 @@
     <script>
         function sendID(){
             var thisURL=document.URL;
-            var modelID=thisURL.split('?')[1];
-            window.location.href='game.html?'+modelID;
+            if(thisURL.indexOf('?')==-1)
+                window.location.href='game.html';
+            else
+            {
+                var str=thisURL.split('?')[1];
+                window.location.href='game.html?'+str;
+            }
+        }
+        function sendID1(){
+            var thisURL=document.URL;
+            if(thisURL.indexOf('?')==-1)
+                window.location.href='model.html';
+            else
+            {
+                var str=thisURL.split('?')[1];
+                window.location.href='model.html?'+str;
+            }
+        }
+        function sendID2(){
+            var thisURL=document.URL;
+            if(thisURL.indexOf('?')==-1)
+                window.location.href='game-model.html';
+            else
+            {
+                var str=thisURL.split('?')[1];
+                window.location.href='game-model.html?'+str;
+            }
         }
     </script>
 </head>
@@ -21,8 +46,8 @@
     <div class="btn_group">
         <ul>
             <li><button onclick="sendID()">开 始 游 戏</button></li>
-            <li><button onclick="window.location.href='model.html'">赛 车 类 型</button></li>
-            <li><button onclick="window.location.href='game-model.html'">游 戏 模 式</button></li>
+            <li><button onclick="sendID1()">赛 车 类 型</button></li>
+            <li><button onclick="sendID2()">游 戏 模 式</button></li>
             <li><button>结 束 游 戏</button></li>
         </ul>
     </div>

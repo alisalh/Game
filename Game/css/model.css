@@ -14,7 +14,7 @@
 
 #modelStats {
     width:25%;
-    height:30%;
+    height:32%;
     right:3%;
     top:25%;
     margin:4px;
@@ -64,11 +64,7 @@ img:active
     box-shadow: none;
 }
 
-<<<<<<< HEAD
 button
-=======
-#choose_but
->>>>>>> 42c857452b4009c3e11b45cdcdc0710a732e72c5
 {
     width:auto;
     background-color: #FF6428;
@@ -84,10 +80,6 @@ button
     cursor: pointer;
     margin: 5px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.25), 0 6px 20px 0 rgba(0,0,0,0.25);
-}
-
-#choose_but
-{
     position:absolute;
     bottom:17%;
     left:43%;

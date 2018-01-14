@@ -118,7 +118,10 @@ Environment.prototype.createRoad = function()
 		
 	var texture = THREE.ImageUtils.loadTexture('../images/road-rotated.jpg');
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(1, 40);
+    if(modeID==6)
+    	texture.repeat.set(1, 40);  //单玩家
+    else
+    	texture.repeat.set(5,40);   //多玩家
 
 	var road = new THREE.Mesh( new THREE.PlaneGeometry( Environment.ROAD_WIDTH, 
 			Environment.ROAD_LENGTH * 2),

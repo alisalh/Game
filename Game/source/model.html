@@ -122,7 +122,7 @@
             var nFaces = geometry.faces.length;
             var nPlaces = 3;
 
-            var statsHTML = "<br>Model Info<br># Car Brand: "+info.brand+"<br># Color: "+info.color+
+            var statsHTML = "<h3>Model Info</h3># Car Brand: "+info.brand+"<br># Color: "+info.color+
                 "<br># Dimensions: (" + width.toFixed(nPlaces) + " , " + height.toFixed(nPlaces)
                 + " , " + depth.toFixed(nPlaces) + ")<br># Materials: " + nMaterials + "<br># Faces: "
                 + nFaces+"<br># Performance: "+info.performance;
@@ -192,7 +192,25 @@
 
         function sendID()
         {
-            window.location.href='index.html?'+modelID;
+            var thisURL=document.URL;
+            if(thisURL.indexOf('?')==-1)
+            {
+                window.location.href="index.html?"+"&"+modelID;
+            }
+            else
+            {
+                var str=thisURL.split('?')[1];
+                var arr=str.split('&');
+                if(arr[1]>5)
+                    window.location.href="index.html?"+"&"+modelID+"&"+arr[1];
+                else
+                {
+                    if(arr[2])
+                        window.location.href="index.html?"+"&"+modelID+"&"+arr[2];
+                    else
+                        window.location.href="index.html?"+"&"+modelID;
+                }
+            }
         }
 
         $(document).ready(

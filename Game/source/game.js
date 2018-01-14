@@ -14,11 +14,26 @@ RacingGame.prototype.init = function(param)
 	Sim.App.prototype.init.call(this, param);
 
     var thisURL = document.URL;
-    var modelID = thisURL.split('?')[1];
-
-    if (modelID == "undefined") {//默认为id=0的白车
-        modelID = 0;
-    }
+    if(thisURL.indexOf('?')==-1)   //默认汽车及游戏模式
+	{
+        modelID=0;
+        modeID=6;
+	}
+	else
+	{
+		var str=thisURL.split('?')[1];
+		var arr=str.split('&');
+		if(arr[1]<5)
+		{
+            modelID=arr[1];
+            modeID=arr[2];
+		}
+		else
+		{
+			modelID=0;
+			modeID=arr[1];
+		}
+	}
 
     param = param || {};
 	this.param = param;
@@ -284,41 +299,63 @@ RacingGame.prototype.crash = function(car)
 RacingGame.prototype.createCars = function()
 {
 	this.cars = [];
-	
-	var i = 0, nCars = 3;
-	for (i = 0; i < nCars; i++)
+
+	if(modeID==6)
 	{
-		var object = this.createCar(i % this.nMakesLoaded,0);
+        var i = 0, nCars = 3;
+        for (i = 0; i < nCars; i++)
+        {
+            var object = this.createCar(i % this.nMakesLoaded,0);
 
-		var car = new Car;
-		car.init({ mesh : object ,flag : 0});
-		this.addObject(car);
-		var randx = ( Math.random()- 0.5 ) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5 ) ;
-		var randz = (Math.random()) * Environment.ROAD_LENGTH / 2 - RacingGame.CAR_START_Z;
-		car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, randz);
+            var car = new Car;
+            car.init({ mesh : object ,flag : 0});
+            this.addObject(car);
+            var randx = ( Math.random()- 0.5 ) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5 ) ;
+            var randz = (Math.random()) * Environment.ROAD_LENGTH / 2 - RacingGame.CAR_START_Z;
+            car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, randz);
 
-		this.cars.push(car);
-		car.start();
+            this.cars.push(car);
+            car.start();
+        }
+
+        //反向车辆
+        var nrCars=2;
+        var z= -(Math.random()) * Environment.ROAD_LENGTH / 4 + RacingGame.CAR_START_Z;;
+        //var z = Environment.ROAD_LENGTH/2  - RacingGame.CAR_START_Z*3;
+        for(i=0;i<nrCars;i++)
+        {
+            var object = this.createCar(i,1);
+            var car= new Car;
+            car.init({ mesh : object ,flag : 1 });
+            this.addObject(car);
+            var randx = (Math.random()-0.5) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5);
+            //console.log(randx);
+            if(i>0) z -= (Math.random())* Environment.ROAD_LENGTH/4; //保证反向的两辆车不会重
+            car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, z);
+            this.cars.push(car);
+            car.start();
+
+        }
 	}
+	if(modeID==7)
+	{
+        var i = 0, nCars = 5;
+        for (i = 0; i < nCars; i++)
+        {
+            var object = this.createCar(i % this.nMakesLoaded,0);
 
-	//反向车辆
-    var nrCars=2;
-	var z= -(Math.random()) * Environment.ROAD_LENGTH / 4 + RacingGame.CAR_START_Z;;
-    //var z = Environment.ROAD_LENGTH/2  - RacingGame.CAR_START_Z*3;
-	for(i=0;i<nrCars;i++)
-    {
-        var object = this.createCar(i,1);
-        var car= new Car;
-        car.init({ mesh : object ,flag : 1 });
-        this.addObject(car);
-        var randx = (Math.random()-0.5) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5);
-        //console.log(randx);
-        if(i>0) z -= (Math.random())* Environment.ROAD_LENGTH/4; //保证反向的两辆车不会重
-        car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, z);
-        this.cars.push(car);
-        car.start();
+            var car = new Car;
+            car.init({ mesh : object ,flag : 0});
+            this.addObject(car);
+            var randx = ( Math.random()- 0.5 ) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5 ) ;
+            var randz = (Math.random()) * Environment.ROAD_LENGTH / 2 - RacingGame.CAR_START_Z;
+            car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, randz);
 
-    }
+            this.cars.push(car);
+            car.start();
+        }
+
+	}
 
 	if (this.player)
 	{
