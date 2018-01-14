@@ -470,11 +470,11 @@ RacingGame.prototype.updateHUD = function()
 //检测路上其他车辆是否产生碰撞
 RacingGame.prototype.moveCars = function()
 {
-    var i=0,j=3;
-    for(;i<3;i++)
+    var i,j;
+    for(i=0;i<2;i++)
     {
         var car1=this.cars[i].object3D.position;
-        for(j=3;j<5;j++)
+        for(j=2;j<5;j++)
         {
             var car2=this.cars[j].object3D.position;
             dist = car2.x-car1.x;
