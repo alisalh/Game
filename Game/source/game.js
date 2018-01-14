@@ -6,7 +6,6 @@ RacingGame = function()
 
 // Subclass Sim.App
 RacingGame.prototype = new Sim.App();
-
 // Our custom initializer
 RacingGame.prototype.init = function(param)
 {
@@ -243,7 +242,7 @@ RacingGame.prototype.onRacerLoaded = function(id,model,options)
 	this.player.init({ mesh : model.object3D, camera : camera, exhaust:true,
 		sounds : this.sounds});
 	this.addObject(this.player);
-	this.player.setPosition(0, RacingGame.CAR_Y + Environment.GROUND_Y, 
+	this.player.setPosition(0, RacingGame.CAR_Y + Environment.GROUND_Y,
 			Environment.ROAD_LENGTH / 2 - RacingGame.PLAYER_START_Z);
 	this.player.start();
 	
@@ -276,15 +275,24 @@ RacingGame.prototype.finishGame = function()
 {
 	this.running = false;
 	this.player.stop();
-	
 	var i, len = this.cars.length;
 	for (i = 0; i < len; i++)
 	{
 		this.cars[i].stop();
 	}
-	
+
+    var rank=6;
+	if(modeID==7)
+	{
+        for(i=0;i<len;i++)
+        {
+            if(this.player.object3D.position.z<this.cars[i].object3D.position.z)
+                rank--;
+        }
+	}
+
 	this.state = RacingGame.STATE_COMPLETE;
-	this.showResults();
+	this.showResults(rank);
 }
 
 RacingGame.prototype.crash = function(car)
@@ -339,7 +347,7 @@ RacingGame.prototype.createCars = function()
 	}
 	if(modeID==7)
 	{
-        var i = 0, nCars = 5;
+        var i = 0, nCars = 2;
         for (i = 0; i < nCars; i++)
         {
             var object = this.createCar(i % this.nMakesLoaded,0);
@@ -347,13 +355,38 @@ RacingGame.prototype.createCars = function()
             var car = new Car;
             car.init({ mesh : object ,flag : 0});
             this.addObject(car);
-            var randx = ( Math.random()- 0.5 ) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5 ) ;
-            var randz = (Math.random()) * Environment.ROAD_LENGTH / 2 - RacingGame.CAR_START_Z;
-            car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, randz);
-
+            // var randx = ( Math.random()- 0.5 ) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5 ) ;
+            // var randz = (Math.random()) * Environment.ROAD_LENGTH / 2 - RacingGame.CAR_START_Z;
+           // car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, randz);
+			if(i==0)
+				car.setPosition(-2.5, RacingGame.CAR_Y + Environment.GROUND_Y,
+					Environment.ROAD_LENGTH / 2 - RacingGame.PLAYER_START_Z);
+			else
+                car.setPosition(2.5, RacingGame.CAR_Y + Environment.GROUND_Y,
+                    Environment.ROAD_LENGTH / 2 - RacingGame.PLAYER_START_Z);
             this.cars.push(car);
             car.start();
         }
+
+        //反向车辆
+        var nrCars=3;
+        var z= -(Math.random()) * Environment.ROAD_LENGTH / 4 + RacingGame.CAR_START_Z;;
+        //var z = Environment.ROAD_LENGTH/2  - RacingGame.CAR_START_Z*3;
+        for(i=0;i<nrCars;i++)
+        {
+            var object = this.createCar(i,1);
+            var car= new Car;
+            car.init({ mesh : object ,flag : 1 });
+            this.addObject(car);
+            var randx = (Math.random()-0.5) * (Environment.ROAD_WIDTH - Car.CAR_WIDTH*1.5);
+            //console.log(randx);
+            if(i>0) z -= (Math.random())* Environment.ROAD_LENGTH/4; //保证反向的两辆车不会重
+            car.setPosition(randx, RacingGame.CAR_Y + Environment.GROUND_Y, z);
+            this.cars.push(car);
+            car.start();
+
+        }
+
 
 	}
 
@@ -405,7 +438,9 @@ RacingGame.prototype.update = function()
 		this.updateHUD();
 		//console.log(Environment.ROAD_LENGTH);
 		this.testCollision();
-        this.moveCars();
+
+		if(modeID==6)
+			this.moveCars();
 
 		if (this.player.object3D.position.z < (-Environment.ROAD_LENGTH / 2 - Car.CAR_LENGTH))
 		{
@@ -492,7 +527,7 @@ RacingGame.prototype.testCollision = function()
 	}
 }
 
-RacingGame.prototype.showResults = function()
+RacingGame.prototype.showResults = function(rank)
 {
 	var overlay = document.getElementById("overlay");
 
@@ -508,8 +543,10 @@ RacingGame.prototype.showResults = function()
 		}
 
 		headerHtml = "完成比赛!";
-		contentsHtml = 
-			"成绩: " + elapsedTime + "s<p>最佳成绩: " + RacingGame.best_time + "s";
+		if(modeID==6)
+		 contentsHtml = "成绩: " + elapsedTime + "s<p>最佳成绩: " + RacingGame.best_time + "s";
+		if(modeID==7)
+			contentsHtml = "成绩: " + elapsedTime + "s<p>排名: " + rank;
 
 	}
 	else if (this.state == RacingGame.STATE_CRASHED)
